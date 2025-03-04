@@ -1,3 +1,7 @@
+/**
+ * Esta es la clase principal en la que se envían las cosas
+ */
+
 package com.ejemplo;
 
 import org.springframework.web.bind.annotation.GetMapping;
