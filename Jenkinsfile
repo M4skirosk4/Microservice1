@@ -26,7 +26,6 @@ pipeline {
                     }
                 }
     }
-
     post {
         always {
             // Limpieza y acciones post-ejecución

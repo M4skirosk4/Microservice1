@@ -2,7 +2,7 @@ FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
-COPY target/microservicio-1-1.0-SNAPSHOT.jar app.jar
+COPY /target/microservicio-1-1.0-SNAPSHOT.jar app.jar
 
 EXPOSE 8081
 
