@@ -1,3 +1,5 @@
+Command to create the docker image
+
 docker build -t microservicio2 -f Docker/Dockerfile .
 
 build -t name of the image
