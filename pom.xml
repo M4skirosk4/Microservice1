@@ -32,6 +32,12 @@
       <version>5.11.4</version>
       <scope>test</scope>
     </dependency>
+    <!-- Dependencia para pruebas con Spring Boot -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
 
   </dependencies>
 
