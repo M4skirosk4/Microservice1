@@ -4,32 +4,36 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/M4skirosk4/Microservice1.git'
+                dir('microservice1'){
+                git branch: 'main', url: 'https://github.com/M4skirosk4/Microservice1.git'
+
+                }
+
             }
         }
-
-        stage('Build Backend') {
+        stage('Build') {
+                steps {
+                    script {
+                         echo 'Building the project...'
+                        sh 'mvn clean package -DskipTests=true -f pom.xml'
+                            }
+                        }
+                }
+        stage('Resolve Dependencies') {
             steps {
                 script {
-                    // Construcción del backend Java (suponiendo Maven)
-                    sh 'mvn clean install'
+                    echo 'Resolving dependencies...'
+                    sh 'mvn dependency:resolve'
                 }
             }
         }
-
-        stage('Run Tests') {
-                    steps {
-                        script {
-                            // Construcción del backend Java (suponiendo Maven)
-                            sh 'mvn test'
-                        }
+        stage('Test') {
+                steps {
+                    script {
+                        echo 'Running tests...'
+                        sh 'mvn test -e'
+                            }
                     }
                 }
-    }
-    post {
-        always {
-            // Limpieza y acciones post-ejecución
-            echo 'Proceso finalizado.'
         }
-    }
 }
