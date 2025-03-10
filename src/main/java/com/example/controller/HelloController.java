@@ -1,5 +1,6 @@
 /**
  * Esta es la clase principal en la que se envían las cosas
+ * Comentario añadido para test
  */
 
 package com.example.controller;
