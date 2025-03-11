@@ -13,27 +13,34 @@ pipeline {
         }
         stage('Build') {
                 steps {
-                    script {
-                         echo 'Building the project...'
-                        sh 'mvn clean package -DskipTests=true'
+                    dir('microservice1'){
+                        script {
+                            echo 'Building the project...'
+                            sh 'mvn clean package -DskipTests=true'
+                            echo 'Resolving dependencies...'
+                            sh 'mvn dependency:resolve'
+                                }
                             }
                         }
                 }
-        stage('Resolve Dependencies') {
-            steps {
-                script {
-                    echo 'Resolving dependencies...'
-                    sh 'mvn dependency:resolve'
+        stage('Test') {
+                steps {
+                    dir('microservice1'){
+                        script {
+                            echo 'Running tests...'
+                            sh 'mvn test -e'
+                                }
+                        }
+                    }
+                }
+        stage('Run'){
+            steps{
+                dir('microservice1'){
+                    script{
+                        sh 'nohup java -jar microservice1/target/microservicio-1-1.0-SNAPSHOT.jar &'
+                    }
                 }
             }
         }
-        stage('Test') {
-                steps {
-                    script {
-                        echo 'Running tests...'
-                        sh 'mvn test -e'
-                            }
-                    }
-                }
-        }
+    }
 }
