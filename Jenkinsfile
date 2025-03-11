@@ -15,7 +15,7 @@ pipeline {
                 steps {
                     script {
                          echo 'Building the project...'
-                        sh 'mvn clean package -DskipTests=true -f pom.xml'
+                        sh 'mvn clean package -DskipTests=true'
                             }
                         }
                 }
