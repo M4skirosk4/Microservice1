@@ -1,7 +1,6 @@
 /**
  * Esta es la clase principal en la que se envían las cosas
- * Se añaden comentarios extra
- *This is feature6 branch
+ * Se crea esta rama para probar lo de los pull requests
  */
 
 package com.example.controller;
