@@ -1,6 +1,5 @@
 /**
  * Esta es la clase principal en la que se envían las cosas
- * Se crea esta rama para probar lo de los pull requests
  */
 
 package com.example.controller;
